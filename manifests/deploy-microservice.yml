@@ -23,7 +23,7 @@ spec:
                 -   image: 702037529261.dkr.ecr.us-west-2.amazonaws.com/avengers-microservice
                     name: avengers-microservice
                     ports:
-                        -   name: tony
+                        -   name: avenger
                             containerPort: 8080
 ---
 
