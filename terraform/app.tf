@@ -3,9 +3,9 @@ provider "aws" {
 }
 
 variable "team-name" {
-  description = "team-name"
+  description = "avengers"
   type        = string
-  default     = "default-team-name"
+  default     = "avengers"
 }
 
 resource "aws_instance" "web" {
@@ -26,7 +26,7 @@ terraform {
    backend "s3" {
  # Replace this with your bucket name!
    bucket         = "ot-infra-state"
-   key            = "global/s3/terraform-test.tfstate"
+   key            = "global/s3/terraform-avengers.tfstate"
    region         = "us-east-1"
    }
 }
