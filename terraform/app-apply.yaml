@@ -24,7 +24,7 @@ spec:
                                 key: AWS_SECRET_ACCESS_KEY
                     -   name: TF_VAR_team_name
                         value: avengers
-                    args:
+                    args: 
                       - apply
                       - -auto-approve
             restartPolicy: Never
