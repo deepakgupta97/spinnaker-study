@@ -6,7 +6,7 @@ metadata:
         stack: frontend
         source: demo
     name: avengers-microservice
-    namespace: microservices
+    namespace: avengers
 spec:
     replicas: 3
     selector:
@@ -33,7 +33,7 @@ metadata:
     labels:
         app: avengers-microservice-service
     name: avengers-microservice-service
-    namespace: microservices
+    namespace: avengers
 spec:
     selector:
         source: demo
@@ -52,7 +52,7 @@ metadata:
     annotations:
         nginx.ingress.kubernetes.io/rewrite-target: /$2
     name: avengers-ingress
-    namespace: microservices
+    namespace: avengers
 spec:
     rules:
         -   http:
