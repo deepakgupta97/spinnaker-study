@@ -8,9 +8,31 @@ variable "team-name" {
   default     = "avengers"
 }
 
+resource "aws_security_group" "web-sg" {
+  
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_instance" "web" {
   ami           = "ami-090717c950a5c34d3"
   instance_type = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.web-sg.id]
+  
+  depends_on = [
+    aws_security_group.web-sg
+  ]
 
   tags = {
     Name = var.team-name
